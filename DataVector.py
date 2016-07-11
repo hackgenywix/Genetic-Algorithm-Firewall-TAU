@@ -1,5 +1,7 @@
-from scapy.all import *
+# Created by Leon Agmon Nacht
 
+
+from scapy.all import rdpcap
 
 class DataVector(object):
     """
@@ -36,7 +38,6 @@ class DataVector(object):
                 self.protocol = sc_packet[layer_index].name
                 layer_index += 1
             except Exception:
-                print layer_index
                 break
         self.protocol = sc_packet[layer_index - 1].name
 
@@ -44,8 +45,8 @@ class DataVector(object):
 class PCAPData(object):
     """
     a class representing the data in a PCAP file
+    use example: packets = PCAPData("/Users/Leon/Documents/EA/NTLM-wenchao.pcap")
     """
-
     def __init__(self, path_to_pcap):
         """
         init with a path to a pcap file to load the data from
@@ -56,9 +57,3 @@ class PCAPData(object):
         pcap_data = rdpcap(path_to_pcap)
         for p in pcap_data:
             self.packets.append(DataVector(p))
-
-
-
-file = PCAPData("/Users/Leon/Documents/EA/NTLM-wenchao.pcap")
-for p in file.packets:
-    print p.protocol
