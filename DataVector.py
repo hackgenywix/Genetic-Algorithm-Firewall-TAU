@@ -1,7 +1,7 @@
 # Created by Leon Agmon Nacht
 
-
 from scapy.all import rdpcap
+
 
 class DataVector(object):
     """
