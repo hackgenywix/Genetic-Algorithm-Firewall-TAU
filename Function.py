@@ -105,6 +105,9 @@ class Function:
             return self ^ Function(other)
         return Function(lambda x: self(other(x)))
 
+    def __repr__(self):
+        pass
+
 
 class ProbabilityException(Exception):
     def __init__(self, value):

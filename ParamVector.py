@@ -2,4 +2,14 @@
 
 
 class ParamVector(object):
-    pass
+    """
+    This class represents a function using parameters(other functions) multiplied 
+    """
+    base_functions = []
+
+    @staticmethod
+    def generate_random_data():
+        """
+        creates
+        :return:
+        """
